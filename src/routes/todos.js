@@ -9,7 +9,8 @@ router.get('/', (req, res) => {
 
   // PBI-3: filter by completed status via ?completed=true|false
   if (req.query.completed !== undefined) {
-    todos = todos.filter((t) => t.completed === req.query.completed);
+    const completed = req.query.completed === 'true';
+    todos = todos.filter((t) => t.completed === completed);
   }
 
   res.json(todos);
